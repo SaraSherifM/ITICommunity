@@ -111,7 +111,7 @@ namespace ITICommunity.Controllers
         // GET: api/OnlineUsers
         
         [HttpGet("GetOnlineFollowing/{Id}")]
-        public async Task<ActionResult<IEnumerable<OnlineUser>>> GetOnlineFollowing(int id)
+        public async Task<ActionResult<IEnumerable<User>>> GetOnlineFollowing(int id)
         {
             List<User> users = _context.User.ToList();
             List<Follow> follows = _context.Follow.ToList();
@@ -121,7 +121,7 @@ namespace ITICommunity.Controllers
                 join u in users.ToList() on o.UserId equals u.Id
                 join fol in follows.ToList() on u.Id equals fol.UserId where fol.FollowingId == o.UserId where o.UserId == id
                 select new {UserId=u.Id , onlineFollowing=o.UserId, FollowingID=fol.FollowingId };
-            return onlineFollowings as List<OnlineUser>;
+            return onlineFollowings as List<User>;
         }
     }
 }
