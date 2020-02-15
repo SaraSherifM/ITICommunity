@@ -6,9 +6,11 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ITICommunity.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace ITICommunity.Controllers
 {
+    
     [Route("api/[controller]")]
     [ApiController]
     public class UserWorkExperiencesController : ControllerBase
