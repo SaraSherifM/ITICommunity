@@ -79,7 +79,8 @@ namespace ITICommunity.Controllers
             {
                 new Claim (ClaimTypes.NameIdentifier, userFromRepo.Id.ToString()),
                 new Claim (ClaimTypes.Email, userFromRepo.Email)
- 
+               
+
             };
 
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration.GetSection("AppSettings:Token").Value));
